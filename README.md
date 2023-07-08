@@ -1,11 +1,14 @@
 # rustdesk-kasm-image
 ## Rustdesk image/app for Kasm Workspaces
 
-To add to Kasm, first clone the git and cd into it
+To add to Kasm, first clone the git and cd into it I prefer to put most of my projects in /opt so
+`cd /opt`
 `git clone https://github.com/JReming85/rustdesk-kasm-image.git`
 `cd rustdesk-kasm-image/`
 
-Next you will need to build the image
+Next you will need to build the image, note it is currently set to grab the latest x86/x64 deb file from Rustdesks official github.  It does this by first parsing the latest release page for the x86_x64.deb file, and using that as the package to download/install.
+
+Originially I was hosting all files on my own server but figured it would be safest and less questionable if I had it pull the official deb, and pulled all other files from this git.
 `docker build -t rustdesk-kasm-image:main -f Dockerfile .`
 ![image](https://github.com/JReming85/rustdesk-kasm-image/assets/21246660/f71b9fb2-5f1b-40be-a3c0-f164f02452e5)
 
