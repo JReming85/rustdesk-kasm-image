@@ -16,7 +16,7 @@ Log into your Kasm instance as an admin, Goto Workspaces and then click + Add Wo
 Workspace Type = Container
 Friendly Name = Rustdesk
 Set a Description if you want
-For Thumbnail, I went and uploaded a image to github you can use if you wish https://github.com/JReming85/rustdesk-kasm-image/blob/main/rustdesk.png?raw=true [image](https://github.com/JReming85/rustdesk-kasm-image/blob/main/rustdesk.png?raw=true)
+For Thumbnail, I went and uploaded a image to github you can use if you wish https://github.com/JReming85/rustdesk-kasm-image/blob/main/rustdesk.png?raw=true ![image](https://github.com/JReming85/rustdesk-kasm-image/blob/main/rustdesk.png?raw=true)
 Enabled = True/Checked
 Docker Image = rustdesk-kasm-image:main
 
