@@ -1,5 +1,5 @@
 # rustdesk-kasm-image
-Rustdesk image/app for Kasm Workspaces
+## Rustdesk image/app for Kasm Workspaces
 
 To add to Kasm, first clone the git and cd into it
 `git clone https://github.com/JReming85/rustdesk-kasm-image.git`
