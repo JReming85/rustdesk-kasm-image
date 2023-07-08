@@ -9,15 +9,12 @@ WORKDIR $HOME
 ######### Customize Container Here ###########
 
 RUN  TEMP_DEB="$(mktemp)" \
-	&& apt-get -f install libxcb-randr0 libxdo3\ TEMP_DEB="$(mktemp)" \
-	&& LATESTURL="$(curl -f -L https://github.com/rustdesk/rustdesk/releases/latest | grep -Eo '"https://[a-zA-Z0-9#~.*,/!?=+&_%:-]*-x86_64.deb"')" \
-	&& LATESTURL=${LATESTURL/\"/} \
-	&& wget -P /tmp -O ${TEMP_DEB/\/tmp\//} ${LATESTURL/\"/} \
-	&& echo $TEMP_DEB
-	&& dpkg -i "$TEMP_DEB" \
+	&& apt-get -f install libxcb-randr0 libxdo3\
+	&& LATESTURL="$(curl -f -L https://github.com/rustdesk/rustdesk/releases/latest | grep -Eo 'https://[a-zA-Z0-9#~.*,/!?=+&_%:-]*-x86_64.deb')" \
+	&& wget -O $TEMP_DEB $LATESTURL \
+	&& dpkg -i $TEMP_DEB \
 	&& rm -f "$TEMP_DEB" \
 	&& wget -O "$HOME/Desktop/rustdesk.desktop" https://gitlab.com/jeremyrem/rustdesk-kasm-image/-/raw/main/rustdesk.desktop \
-	&& curl https://bin.jremi.com/selif/rustdesk.desktop -o "$HOME/Desktop/rustdesk.desktop" \
 	&& chmod +x $HOME/Desktop/rustdesk.desktop  \
 	&& chown 1000:1000 $HOME/Desktop/rustdesk.desktop
 
