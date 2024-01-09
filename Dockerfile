@@ -1,4 +1,4 @@
-FROM kasmweb/core-ubuntu-bionic:1.10.0
+FROM kasmweb/core-ubuntu-bionic:1.14.0
 USER root
 
 ENV HOME /home/kasm-default-profile
@@ -8,15 +8,16 @@ WORKDIR $HOME
 
 ######### Customize Container Here ###########
 
-RUN  TEMP_DEB="$(mktemp)" \
-	&& apt-get -f install libxcb-randr0 libxdo3\
-	&& LATESTURL="$(curl -f -L https://github.com/rustdesk/rustdesk/releases/latest | grep -Eo 'https://[a-zA-Z0-9#~.*,/!?=+&_%:-]*-x86_64.deb')" \
-	&& wget -O $TEMP_DEB $LATESTURL \
-	&& dpkg -i $TEMP_DEB \
-	&& rm -f "$TEMP_DEB" \
-	&& wget -O "$HOME/Desktop/rustdesk.desktop" https://gitlab.com/jeremyrem/rustdesk-kasm-image/-/raw/main/rustdesk.desktop \
-	&& chmod +x $HOME/Desktop/rustdesk.desktop  \
-	&& chown 1000:1000 $HOME/Desktop/rustdesk.desktop
+RUN  TEMP_DEB="$(mktemp).deb" \
+        && add-apt-repository ppa:pipewire-debian/pipewire-upstream \
+        && apt-get -f install libxcb-randr0 libxdo3 gstreamer1.0-pipewire -y\
+        && LATESTURL="$(curl -f -L https://github.com/rustdesk/rustdesk/releases/latest | grep -Eo 'https://[a-zA-Z0-9#~.*,/!?=+&_%:-]*-x86_64.deb')" \
+        && wget -O $TEMP_DEB $LATESTURL \
+        && apt install -f $TEMP_DEB -y\
+        && rm -f "$TEMP_DEB" \
+        && wget -O "$HOME/Desktop/rustdesk.desktop" https://gitlab.com/jeremyrem/rustdesk-kasm-image/-/raw/main/rustdesk.desktop \
+        && chmod +x $HOME/Desktop/rustdesk.desktop  \
+        && chown 1000:1000 $HOME/Desktop/rustdesk.desktop
 
 RUN echo "/usr/bin/desktop_ready && /usr/lib/rustdesk/rustdesk &" > $STARTUPDIR/custom_startup.sh \
 && chmod +x $STARTUPDIR/custom_startup.sh
