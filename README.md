@@ -1,6 +1,18 @@
 # rustdesk-kasm-image
 ## Rustdesk image/app for Kasm Workspaces
 
+## Grab it from github
+
+To help anyone else that want to use this, I have created a docker image on github.
+
+To use it, on your kasm server you will need to pull the image.  I created a registry, but it doesnt seem to work at the moment.
+
+```docker pull ghcr.io/jreming85/rustdesk-kasm-image:main```
+After go to the Add to Kasm section, but change
+**Docker Image = ghcr.io/jreming85/rustdesk-kasm-image:main**
+
+## Build it from source
+
 To add to Kasm, first clone the git and cd into it I prefer to put most of my projects in /opt so
 
 ```
@@ -20,7 +32,7 @@ Originially I was hosting all files on my own server but figured it would be saf
 ![image](https://github.com/JReming85/rustdesk-kasm-image/assets/21246660/f71b9fb2-5f1b-40be-a3c0-f164f02452e5)
 
 Once it has finish building we can now add it as an image in Kasm
-
+### Add to Kasm
 Log into your Kasm instance as an admin, Goto Workspaces and then click + Add Workspace ![image](https://github.com/JReming85/rustdesk-kasm-image/assets/21246660/00e4e563-1733-42e0-a67f-b5fe8f8ab5bb)
 
 **Workspace Type = Container**
