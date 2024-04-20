@@ -1,6 +1,14 @@
 # rustdesk-kasm-image
 ## Rustdesk image/app for Kasm Workspaces
 
+## Grab it from my Kasm Registry
+
+Just add https://jreming85.github.io/kasm_registry/ as a registry.
+
+If its your first time, make sure to enable persistant data (or dont) and run the Legacy client.  Configure it to your server or if your not running your own rustdesk server, use out of the box.
+
+After it has been configured, you can then stay on the legacy version or use the latest version, however you will need to make sure you untick the protect settings option as it wont let you access them in the latest version.
+
 ## Grab it from github
 
 To help anyone else that want to use this, I have created a docker image on github.
