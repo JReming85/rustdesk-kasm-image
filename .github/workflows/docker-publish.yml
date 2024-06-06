@@ -9,11 +9,11 @@ on:
   schedule:
     - cron: '42 17 * * *'
   push:
-    branches: [ "main" ]
+    branches: [ "1.2.0" ]
     # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
+    tags: [ 'v1.2.0' ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "1.2.0" ]
 
 env:
   # Use docker.io for Docker Hub if empty
