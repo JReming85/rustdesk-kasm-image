@@ -11,7 +11,7 @@ WORKDIR $HOME
 RUN  TEMP_DEB="$(mktemp).deb" \
         && add-apt-repository ppa:pipewire-debian/pipewire-upstream \
         && apt-get -f install libxcb-randr0 libxdo3 gstreamer1.0-pipewire -y\
-        && LATESTURL="$(curl -f -L https://github.com/rustdesk/rustdesk/tree/1.2.0 | grep -Eo 'https://[a-zA-Z0-9#~.*,/!?=+&_%:-]*-x86_64.deb')" \
+        && LATESTURL="$(curl -f -L https://github.com/rustdesk/rustdesk/releases/tag/1.2.0 | grep -Eo 'https://[a-zA-Z0-9#~.*,/!?=+&_%:-]*-x86_64.deb')" \
         && wget -O $TEMP_DEB $LATESTURL \
         && apt install -f $TEMP_DEB -y\
         && rm -f "$TEMP_DEB" \
